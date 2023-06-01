@@ -41,7 +41,7 @@ header('Content-Type: text/html; charset=UTF-8');
                                     <div class="text-center">
                                         <h1 class="center h4 text-gray-900 mb-4">Bienvenido!</h1>
                                   
-                                        <button class="btn btn-success btn-user btn-block" href="../ActualizarListaPrecios/vistas/eliminarPDF.php">
+                                        <button class="btn btn-success btn-user btn-block" href="../vistas/eliminarPDF.php">
                                             Eliminar lista precios Movimiento
                                         </button>
                                     
