@@ -40,11 +40,11 @@ header('Content-Type: text/html; charset=UTF-8');
                                 <div class="p-5">
                                     <div class="text-center">
                                         <h1 class="center h4 text-gray-900 mb-4">Bienvenido!</h1>
-                                  
-                                        <button class="btn btn-success btn-user btn-block" href="../vistas/eliminarPDF.php">
+                                  <a href="../vistas/eliminarPDF.php">
+                                        <button class="btn btn-success btn-user btn-block">
                                             Eliminar lista precios Movimiento
                                         </button>
-                                    
+                                  </a>
                                         <button class="btn btn-warning btn-user btn-block" >
                                             Eliminar lista precios PDF
                                         </button>
