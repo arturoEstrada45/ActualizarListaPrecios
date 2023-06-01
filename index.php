@@ -32,61 +32,32 @@ header('Content-Type: text/html; charset=UTF-8');
         <!-- Outer Row -->
         <div class="row justify-content-center">
 
-            <div class="col-xl-10 col-lg-12 col-md-9">
 
                 <div class="card o-hidden border-0 shadow-lg my-5">
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
-                        <div class="row">
-                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
-                            <div class="col-lg-6">
+                        
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Bienvenido!</h1>
-                                    </div>
-                                    <form action="../ActualizarSaldoU/php/conexion.php" method="POST" id="busca">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control form-control-user" id="cuenta" name="cuenta"
-                                            placeholder="Introduce tu Cuenta de busqueda" required >
-                                        </div>
-                                        <div class="form-group">
-                                        <select class="form-control form-control-user" id="almacen" name="almacen">
-                                            <?php 
-                                            try{
-                                            $serverName = "192.168.1.5";
-                                            $connectionInfo = array( "Database"=>"V6INTER", "UID"=>"sa", "PWD"=>"Int3r_Cart0n.");
-                                            $conn = sqlsrv_connect( $serverName, $connectionInfo );
-                                        }catch(Exception $e) {
-                                            echo "<script>console.log('<?php $e->getMessage() ?>')</script>"; 
-                                        }
-                                        if( $conn === false ) {
-                                            echo "<script>console.log( <?php die( print_r( sqlsrv_errors(), true)) ?>)</script>";
-                                       }
-                                            
-                                            $sql = "SELECT grupo FROM saldou group by Grupo";
-                                            $stmt = sqlsrv_query( $conn, $sql );?>
-                                            <option selected="select">Selecciona un almacen</option>
-                                           <?php while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC) ) {?>
-                                             <option ><?php echo $row["grupo"]?></option>
-                                             <?php }  ?>
-                                            </select>
-                                        </div>
-                                      
-                                       
-                                        <button class="btn btn-primary btn-user btn-block" type="submit" name="busca" form="busca">
-                                            Buscar
+                                        <h1 class="center h4 text-gray-900 mb-4">Bienvenido!</h1>
+                                  
+                                        <button class="btn btn-success btn-user btn-block" href="../ActualizarListaPrecios/vistas/eliminarPDF.php">
+                                            Eliminar lista precios Movimiento
                                         </button>
-                                    </form>
+                                    
+                                        <button class="btn btn-warning btn-user btn-block" >
+                                            Eliminar lista precios PDF
+                                        </button>
+                                       
+                                        </div>
+                                    
                                     
                                 </div>
-                            </div>
-                        </div>
+                          
                     </div>
                 </div>
 
             </div>
-
-        </div>
 
     </div>
 
