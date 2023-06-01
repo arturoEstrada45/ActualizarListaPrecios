@@ -1,20 +1,16 @@
 <?php
-$rama=$_REQUEST['rama'];
-$calidad=$_REQUEST['calidad'];
-$calibre=$_REQUEST['calibre'];
+$articulo=$_REQUEST['articulo'];
 $precio=$_REQUEST['precio'];
  
 $serverName = "192.168.1.5";
 $connectionInfo = array( "Database"=>"PruebasInter3", "UID"=>"sa", "PWD"=>"Int3r_Cart0n.");
 $conn = sqlsrv_connect( $serverName, $connectionInfo );
-$sql = "SELECT * FROM ListaPreciosInter where ListaPrecios='$precio' and Rama='$rama' and Calidad='$calidad' and Calibre='$calibre'";
+$sql = "SELECT * FROM ListaPreciosD WHERE lista='$precio' and Articulo='$articulo'";
 $stmt = sqlsrv_query( $conn, $sql );
 
  while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC) ) {
-   $precio=$row['ListaPrecios'];
-   $rama=$row["Rama"];
-   $calidad=$row["Calidad"];
-   $calibre=$row["Calibre"];
+   $lista=$row['Lista'];
+   $articulo=$row["Articulo"];
      } 
 
 
@@ -30,7 +26,7 @@ $stmt = sqlsrv_query( $conn, $sql );
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Actualización SaldoU</title>
+    <title>Información lista precio movimiento</title>
 
     <!-- Custom fonts for this template-->
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -59,25 +55,20 @@ alert("Ten cuidado con los cambios que hagas");
                                 <div class="p-5">
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-2">Precio <?php echo $precio?></h1>
-                                        <h1 class="h4 text-gray-900 mb-2">Rama:</h1>
-                                        <p class="mb-4"><?php echo $rama ?></p>
-                                        <h1 class="h4 text-gray-900 mb-2">Calidad: </h1>
-                                        <p class="mb-4"><?php echo $calidad ?></p>
-                                        <h1 class="h4 text-gray-900 mb-2">Calibre: </h1>
-                                        <p class="mb-4"><?php echo $calibre ?></p>
-                                        
+                                        <h1 class="h4 text-gray-900 mb-2">Articulo:</h1>
+                                        <p class="mb-4"><?php echo $articulo ?></p>                                       
                                         
                                     </div>
                                     
                                     <div class="text-center">
                                     <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="text-gray-400"></i>
-                                    Eliminar PDF Lista precio
+                                    Eliminar Movimiento Lista precio
                                 </a>
                                     </div>
                                 
                                     <div class="text-center">
-                                        <a class="small" href="../vistas/eliminarPDF.php">Regresar a la busqueda</a>
+                                        <a class="small" href="../vistas/eliminarMov.php">Regresar a la busqueda</a>
                                     </div>
                                 </div>
                     </div>
@@ -100,13 +91,9 @@ alert("Ten cuidado con los cambios que hagas");
                 <div class="form-group">
                                     
                                         <p class="mb-4">El precio es <?php echo $precio;?></p>
-                                        <p class="mb-4">La rama es <?php echo $rama;?></p>
-                                        <p class="mb-4">La calidad es <?php echo $calidad;?></p>
-                                        <p class="mb-4">El calibre es <?php echo $calibre;?></p>
+                                        <p class="mb-4">La rama es <?php echo $articulo;?></p>
                                         <input type="text" hidden class="form-control form-control-user" id="precio" name="precio" value="<?php echo $precio?>" >
-                                        <input type="text" hidden class="form-control form-control-user" id="rama" name="rama" value="<?php echo $rama?>" >
-                                        <input type="text" hidden class="form-control form-control-user" id="calidad" name="calidad" value="<?php echo $calidad?>" >
-                                        <input type="text" hidden class="form-control form-control-user" id="calibre" name="calibre" value="<?php echo $calibre?>" >
+                                        <input type="text" hidden class="form-control form-control-user" id="articulo" name="articulo" value="<?php echo $articulo?>" >
                                             
                                   
                                     
@@ -115,7 +102,7 @@ alert("Ten cuidado con los cambios que hagas");
                 
     </div>
                 <div class="modal-footer"> 
-                <button class="btn btn-primary" type="submit" name="eliminarPDF" form="updateUser">Eliminar</button>
+                <button class="btn btn-primary" type="submit" name="eliminarMov" form="updateUser">Eliminar</button>
                     <button class="btn btn-danger" type="button" data-dismiss="modal">Cancelar</button>
                     </div>
             </div>

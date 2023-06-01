@@ -26,6 +26,9 @@
 </head>
 
 <body class="bg-gradient-primary">
+    <script>
+        alert("No existe esta información en la lista de precios");
+        </script>
     <div class="container">
 
         <!-- Outer Row -->
